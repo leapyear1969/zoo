@@ -1,5 +1,75 @@
 /* 
     require:1.developers :
+                        name, id, salary , work
+            manager:
+                    name, id ,salary ,bonus , work,
     
-    
+    Test this
 */
+
+asbstract class Employee{
+    private String name;
+    private int id;
+    private int salary;
+    public void Employee(){}
+    public void Employee(String name, int id, int salary){
+        this.name = name;
+        this.id = id;
+        this.salary = salary;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+    public void setSalary(int salary){
+        this.salary = salary;
+    }
+    public String getName(){
+        return name;
+    }
+    public int getId(){
+        return id;
+    }
+    public int getSalary(){
+        return salary;
+    }
+    public abstract void work();
+}
+
+class Developer extends Employee{
+    public void Developer(){}
+    public void Developer(String name,int id, int salary){
+        super(name,id,salary);
+    }
+    public void work(){
+        System.out.println("code");
+    }
+}
+
+class Manager extends Employee{
+    private int bouns;
+    public void Manager(){}
+    public void Manager(String name,int id,int salary, int bouns){
+        this.bouns= bouns;
+        super(name,int,salary);
+    }
+    public void setBouns(int bouns){
+        this.bouns = bouns;
+    }
+    public int getBouns(){
+        return bouns;
+    }
+}
+
+
+
+
+class TestEmployee{
+    public static void main(String[] args){
+        
+    }
+}
+
+
