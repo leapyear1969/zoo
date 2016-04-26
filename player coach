@@ -4,28 +4,144 @@
     为了出国交流，乒乓球相关的人员需要学习英语
     Test
 */
+/*		乒乓球运动员，篮球远动员，乒乓球教练，篮球教练
+ *		 
+ * 
+ */
 
+package cn.itcat;
+
+
+
+
+/*
+乒乓球运动员和篮球运动员
+乒乓球教练和篮球教练
+为了出国交流，乒乓球相关的人员需要学习英语
+Test
+*/
+
+interface SpeakEnglish{
+	public abstract void speakEnglish();
+}
+
+//人的抽象类
 abstract class Person{
-    private String name;
-    private int age;
-    
-    public void Person(){}
-    public void Person(String name,int age){
-        this.name = name;
-        this.age = age;
-    }
-    public void setName(String nane){
-        this.name = name;
-    }
-    public void setAge(int age){
-        this.age = age;
-    }
-    public String getName(){
-        return name;
-    }
-    public int getAge(){
-        return age;
-    }
-    public abstract void eat();
+	private String name;
+	private int age;
+
+	public  Person() {}
+	public  Person(String name,int age){
+		this.name = name;
+		this.age = age;
+	}
+	public void setName(String name){
+		this.name = name;
+	}
+	public void setAge(int age){
+		this.age = age;
+	}
+	public String getName(){
+		return name;
+	}
+	public int getAge(){
+		return age;
+	}
+	public abstract void eat();
+}
+
+//运动员的抽象类
+abstract class Player extends Person{
+	public  Player() {}
+	public Player(String name,int age){
+		super(name,age);
+	}
+	//学习的抽象方法
+	public abstract void study();
+}
+
+//教练的抽象类
+abstract class Coach extends Person{
+	public Coach(){}
+	public Coach(String name, int age){
+		super(name,age);
+	}
+	public abstract void teach();
+}
+
+//具体的乒乓球运动员类
+class PingPangPlayer extends Player implements SpeakEnglish{
+	public PingPangPlayer(){}
+	public PingPangPlayer(String name,int age){
+		super(name,age);
+	}
+	public void speakEnglish(){
+		System.out.println("SpeakEnglish");
+	}
+	public void eat(){
+		System.out.println("eat fish");
+	}
+	public void study(){
+		System.out.println("Learn pingpang");
+	}
+}
+
+//具体的篮球运动员类
+class BasketBallPlayer extends Player {
+	public BasketBallPlayer() {}
+	public BasketBallPlayer(String name,int age){
+		super(name,age);
+	}
+	public void eat(){
+		System.out.println("eat meat");
+	}
+	public void study(){
+		System.out.println("play basketball");
+	}
+}
+
+//具体的乒乓球教练类
+class PingPangCoach extends Coach implements SpeakEnglish{
+	public PingPangCoach() {}
+	public PingPangCoach(String name,int age){
+		super(name,age);
+	}
+	public void eat(){
+		System.out.println("eat rice");
+	}
+	public void teach(){
+		System.out.println("teach pingpang");
+	}
+	public void speakEnglish(){
+		System.out.println("speak english");
+	}
+}
+
+//具体的篮球教练
+class BasketBallCoach extends Coach {
+	public BasketBallCoach() {}
+	public BasketBallCoach(String name,int age){
+		super(name,age);
+	}
+	public void teach(){
+		System.out.println("teach basketball");
+	}
+	public void eat(){
+		System.out.println("eat rou");
+	}
+}
+
+//测试类
+public class Demo {
+	public static void main(String[] args) {
+		PingPangPlayer ppp = new PingPangPlayer();
+		ppp.setAge(23);
+		ppp.setName("jason");
+		System.out.println(ppp.getAge()+ppp.getName());
+		ppp.eat();
+		ppp.speakEnglish();
+		ppp.getAge();
+		ppp.getName();
+	}
 }
 
